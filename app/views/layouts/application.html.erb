@@ -1,14 +1,42 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <title>Passionfruit</title>
+    <title><%= "PF" %></title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
-
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to image_tag("logo.png", alt: "PassionFruit"),
+            root_path, id: "logo2"%>
+        <%= link_to "PassionFruit", root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to  image_tag("search.png", alt: "PassionFruit", class: "menu-icon"), '#' %></li>
+            <li><%= link_to  image_tag("home.png", alt: "PassionFruit", class: "menu-icon"), root_path %></li>
+            <% if logged_in? %>
+              <li><%= link_to  image_tag("personal.png", alt: "PassionFruit", class: "menu-icon"), current_user %></li>
+              <li><%= link_to  image_tag("menu.png", alt: "PassionFruit", class: "menu-icon"), '#' %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_path ,:class => "btn-custom", :id => "signup" %></li>
+              <li><%= link_to "Log in", login_path , :id => "login"%></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container-fluid main-body">
+      <%= yield %>
+    </div>
+    <footer>© PASSIONFRUIT</footer>
   </body>
 </html>
+

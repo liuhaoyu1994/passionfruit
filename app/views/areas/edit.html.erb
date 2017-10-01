@@ -1,0 +1,14 @@
+<h1>Edit Area</h1>
+<div class="col-md-10 col-md-offset-1">
+    <%= form_for @area, html: { multipart: true } do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, id: :area_name, class: 'form-control' %>
+        <%= f.file_field :image %>
+    
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+</div>
+<div class="col-md-12"></div>
+<%= link_to 'Back', areas_path ,:class => "col-md-12"%>

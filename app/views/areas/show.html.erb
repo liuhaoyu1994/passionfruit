@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<div class = "banner_container container">
+  <div class = "banner_text col-md-12"><%= @area.name %></div>
+  <div class  = "filter"></div>
+    <div class = "banner"><%= image_tag(@area.image.url)%></div>
+</div>
+
+<% @area.forums.each do |forum| %>
+      
+        <%= forum.name %>
+        <%= forum.describtion %>
+
+      </tr>
+    <% end %>
+
+<%= link_to 'Edit', edit_area_path(@area) %> |
+<%= link_to 'Back', areas_path %>

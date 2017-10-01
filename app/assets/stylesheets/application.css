@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ 
+@font-face {
+    font-family: din;
+    src: url(DINPro-Regular.otf);
+}
+
+@font-face {
+    font-family: din;
+    src: url(DINPro-Black.otf);
+    font-weight: bold;
+}
+
+
+body{
+    font-family: din;
+}

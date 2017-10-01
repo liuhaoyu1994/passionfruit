@@ -10,13 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930221349) do
+ActiveRecord::Schema.define(version: 20171001191226) do
+
+  create_table "area_user_relations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_area_user_relations_on_area_id"
+    t.index ["user_id"], name: "index_area_user_relations_on_user_id"
+  end
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer "forum_id"
+    t.index ["forum_id"], name: "index_areas_on_forum_id"
+  end
+
+# Could not dump table "forums" because of following StandardError
+#   Unknown type 'attachment' for column 'image'
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
