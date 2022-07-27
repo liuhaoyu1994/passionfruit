@@ -1,24 +1,11 @@
-# README
+# Passionfruit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Description
 
-* Ruby version
+## Installation
 
-* System dependencies
+## Deployment instructions
 
-* Configuration
+## running set
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
